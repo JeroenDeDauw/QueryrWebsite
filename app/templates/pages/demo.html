@@ -1,5 +1,71 @@
 {% extends "layout.html" %}
 
+{% block title %}QueryR API - demo{% endblock %}
+
 {% block content %}
-Magical demo page be here
+<div class="container">
+    <div class="page-header">
+        <h1>QueryR demo interface</h1>
+
+        <p class="lead">
+            This simple demo interface allows you to quickly get a idea of the data that can be accessed via the QueryR API.
+            <br />
+            You can also just view the API itself at <a href="http://queryr.wmflabs.org">queryr.wmflabs.org</a>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+
+                <div class="input-group" id="searchBox">
+                    <input type="text" class="form-control" placeholder="Enter Wikipedia URL or page title" id="wpPageSearch" autofocus="autofocus">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Get Data</button>
+                        </span>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+                <div class="panel panel-default" id="itemJsonView">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Search for an item or select one on the right to show it here</h3>
+                    </div>
+                    <div class="panel-body"><pre>
+{
+}</pre></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div id="itemListView">
+                <p style="text-align: center" class="relative-link"></p>
+
+                <div class="list-group">
+
+                </div>
+
+                <p style="text-align: center"><a href="#" class="full-link">View more on the API</a></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="{{ app.request.basepath }}/components/jquery/jquery.min.js"></script>
+<script src="{{ app.request.basepath }}/components/bootstrap/bootstrap-built.js"></script>
+<script src="{{ app.request.basepath }}/js/queryr/queryr.js"></script>
+
+<script>
+    queryr.config = {
+        'api_url': 'http://queryr.wmflabs.org/',
+        'notFoundItem': 'Q208219'
+    };
+</script>
+
+<script src="{{ app.request.basepath }}/js/queryr/ItemListView.js"></script>
+<script src="{{ app.request.basepath }}/js/queryr/ItemJsonView.js"></script>
+<script src="{{ app.request.basepath }}/js/queryr/SearchBoxUI.js"></script>
+<script src="{{ app.request.basepath }}/js/queryr/SearchBox.js"></script>
+<script src="{{ app.request.basepath }}/js/queryr/WikipediaSearcher.js"></script>
+<script src="{{ app.request.basepath }}/js/demo.js"></script>
+<script src="{{ app.request.basepath }}/js/typeahead.bundle.js"></script>
+<link href="{{ app.request.basepath }}/css/demo.css" rel="stylesheet" type="text/css">
 {% endblock %}

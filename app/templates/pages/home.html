@@ -14,10 +14,12 @@ It is uses the free and open source
 [QueryR API](https://github.com/JeroenDeDauw/QueryrAPI) software, which can
 more generally be used to access [Wikibase](http://wikiba.se/) information.
 
+You can find the API's root endpoint at [queryr.wmflabs.org](http://queryr.wmflabs.org).
+
 ## Stability
 
-The QueryR service is still in development. No guarantees about its availability or stability are
-provided.
+The QueryR service is still **in development**. **No guarantees** about its availability or stability are
+provided. Do not rely on this service and **do not use it in production**.
 
 At this point we are looking for input and
 [welcome your feedback](https://github.com/JeroenDeDauw/QueryrAPI/issues).
@@ -32,8 +34,9 @@ Advantages:
     * Self-documenting
     * Standards compliant
 * Use-case orientated approach rather than one-size-fits-all
-    * Much simpler format
-    * Faster and cheaper to retrieve format due to much smaller size
+    * Much simpler formats
+    * Much more stable formats
+    * Faster and cheaper to retrieve formats due to much smaller size
 * Denormalization and inclusion of referenced data
     * No need to make additional requests to understand the requested data
 
@@ -46,6 +49,12 @@ Disadvantages:
 
 Many things can be done, input is needed for prioritization. Similarly, input is needed to
 decide on [basic questions](https://github.com/JeroenDeDauw/QueryrAPI/issues?utf8=✓&q=is%3Aopen+label%3A"help+wanted"+label%3A"question").
+
+## Author
+
+The QueryR software has been created and is maintained by Jeroen De Dauw as hobby project.
+It is **not maintained by Wikimedia** or Wikimedia Deutchland. The webservice is run by Adam
+Shorland and Jeroen De Dauw and is similarly not a WMF/WMDE backed project.
 
 {% endmarkdown %}
 {% endblock %}
