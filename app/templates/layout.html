@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title '' %}</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="{{ app.request.basepath }}/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ app.request.basepath }}/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+<a href="https://github.com/JeroenDeDauw/QueryrWebsite">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="{{ app.request.basepath }}/images/gh.png">
+</a>
+</body>
+</html>
