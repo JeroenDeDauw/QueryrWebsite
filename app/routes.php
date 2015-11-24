@@ -5,8 +5,6 @@
  * @author Jeroen De Dauw < jeroendedauw@gmail.com >
  */
 
-declare(strict_types=1);
-
 use Silex\Application;
 
 /**
@@ -15,8 +13,11 @@ use Silex\Application;
  * @var \Silex\Application $app
  */
 
-$app->get( '/', function () use ( $app ) {
-	return $app['twig']->render( 'pages/index.html', [ 'page' => 'home' ] );
-} );
+$pageGetHandler = function ( $page_name ) use ( $app ) {
+	return $app['twig']->render( 'pages/' . $page_name . '.html', [ 'page' => $page_name ] );
+};
+
+$app->get( '/', function() use ( $pageGetHandler ) { return $pageGetHandler( 'home' ); } );
+$app->get( '/{page_name}', $pageGetHandler )->assert( 'page_name', '(home|docs|demo)' );
 
 return $app;

@@ -15,7 +15,7 @@
 
 		"silex/silex": "~1.3",
 		"twig/twig": "~1.23",
-		"worldskills/bootstrap": "~3.2"
+		"worldskills/bootstrap": "~3.3"
 	},
 	"require-dev": {
 		"ext-pdo_sqlite": "*",

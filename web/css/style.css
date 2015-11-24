@@ -1,0 +1,11 @@
+body {
+    background: #f8f8f8;
+    font-size: 17px;
+}
+
+::-moz-selection { background: #ff7f6b; color: #fff; text-shadow: none; }
+::selection { background: #ff7f6b; color: #fff; text-shadow: none; }
+
+.main-nav {
+    padding: 5px 0;
+}

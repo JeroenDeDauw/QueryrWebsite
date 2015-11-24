@@ -6,17 +6,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="{{ app.request.basepath }}/components/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ app.request.basepath }}/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ app.request.basepath }}/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+    <div class="container" role="navigation">
+        <nav class="nav nav-pills main-nav">
+            <li {% if page == 'home' %}class="active"{% endif %}>
+                <a href="{{ app.request.baseurl }}/home">Home</a>
+            </li>
+            <li {% if page == 'docs' %}class="active"{% endif %}>
+                <a href="{{ app.request.baseurl }}/docs">API docs</a>
+            </li>
+            <li {% if page == 'demo' %}class="active"{% endif %}>
+                <a href="{{ app.request.baseurl }}/demo">API demo</a>
+            </li>
+        </nav>
+    </div>
 
-<div class="container">
-    {% block content %}{% endblock %}
-</div>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
 
-<a href="https://github.com/JeroenDeDauw/QueryrWebsite">
-    <img style="position: absolute; top: 0; right: 0; border: 0;" src="{{ app.request.basepath }}/images/gh.png">
-</a>
+    <a href="https://github.com/JeroenDeDauw/QueryrWebsite">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="{{ app.request.basepath }}/images/gh.png">
+    </a>
 </body>
 </html>
