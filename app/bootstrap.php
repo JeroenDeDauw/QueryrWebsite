@@ -18,6 +18,10 @@ $app->register(
 	[ 'twig.path' => __DIR__.'/templates' ]
 );
 
+$app['twig']->addExtension(
+	new Aptoma\Twig\Extension\MarkdownExtension( new \Aptoma\Twig\Extension\MarkdownEngine\MichelfMarkdownEngine() )
+);
+
 $app->error( function ( \Exception $e, $code ) use ( $app ) {
 	if ( $app['debug'] ) {
 		return;

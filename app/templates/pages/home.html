@@ -1,5 +1,51 @@
 {% extends "layout.html" %}
 
+{% block title %}QueryR API{% endblock %}
+
 {% block content %}
-Magical index page be here
+{% markdown %}
+
+# QueryR
+
+**QueryR** is a REST compliant webservice for accessing information stored in
+[Wikidata](https://www.wikidata.org).
+
+It is uses the free and open source
+[QueryR API](https://github.com/JeroenDeDauw/QueryrAPI) software, which can
+more generally be used to access [Wikibase](http://wikiba.se/) information.
+
+## Stability
+
+The QueryR service is still in development. No guarantees about its availability or stability are
+provided.
+
+At this point we are looking for input and
+[welcome your feedback](https://github.com/JeroenDeDauw/QueryrAPI/issues).
+
+## Differences with the Wikidata web API
+
+Advantages:
+
+* REST API with resources, HTTP verbs and hypermedia controls (maturity model level 3)
+    * More intuitive use
+    * Decreased binding of your client to the API
+    * Self-documenting
+    * Standards compliant
+* Use-case orientated approach rather than one-size-fits-all
+    * Much simpler format
+    * Faster and cheaper to retrieve format due to much smaller size
+* Denormalization and inclusion of referenced data
+    * No need to make additional requests to understand the requested data
+
+Disadvantages:
+
+* Data access only, no ability to write back data
+* Not directly connected to the Wikidata persistence, so results might not be as fresh
+
+## Development status and plans
+
+Many things can be done, input is needed for prioritization. Similarly, input is needed to
+decide on [basic questions](https://github.com/JeroenDeDauw/QueryrAPI/issues?utf8=✓&q=is%3Aopen+label%3A"help+wanted"+label%3A"question").
+
+{% endmarkdown %}
 {% endblock %}
