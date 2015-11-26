@@ -4,8 +4,8 @@
         "version": "0.0.1",
         "title": "QueryR API"
     },
-    "host": "queryr.wmflabs.org/api",
-    "basePath": "",
+    "host": "queryr.wmflabs.org",
+    "basePath": "/api",
     "schemes": [
         "http"
     ],
