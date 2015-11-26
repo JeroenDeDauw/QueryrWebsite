@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 $app = new \Silex\Application();
 
-require __DIR__ . '/config/config-default.php';
+require __DIR__ . '/config/default-config.php';
 
 if ( is_readable( __DIR__ . '/config/config.php' ) ) {
 	require __DIR__ . '/config/config.php';

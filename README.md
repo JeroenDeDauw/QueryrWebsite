@@ -9,10 +9,10 @@ The website uses the [Silex](silex.sensiolabs.org/) PHP micro-framework.
 * Run `composer install`
 * http://silex.sensiolabs.org/doc/web_servers.html
 
-For non-default config:
-
-* `cp app/config/config-default.php app/config/config.php` and edit `config.php`
-
-
 For developing, you can simply run `php -S localhost:8000` in `web`. No need to have a real server
 set up.
+
+## Configuration
+
+Available options are in `app/config/default-config.php`. Create a `app/config/config.php` file
+and override the options you are interested in.
