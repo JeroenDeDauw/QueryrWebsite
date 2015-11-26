@@ -2,3 +2,4 @@ composer.lock
 vendor/
 /var/
 web/components/
+app/config/

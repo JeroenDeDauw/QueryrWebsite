@@ -9,6 +9,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 $app = new \Silex\Application();
 
+require __DIR__ . '/config/config-default.php';
+
+if ( is_readable( __DIR__ . '/config/config.php' ) ) {
+	require __DIR__ . '/config/config.php';
+}
+
 $app->register( new Silex\Provider\UrlGeneratorServiceProvider() );
 $app->register( new Silex\Provider\ValidatorServiceProvider() );
 $app->register( new Silex\Provider\ServiceControllerServiceProvider() );

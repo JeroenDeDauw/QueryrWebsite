@@ -14,7 +14,13 @@ use Silex\Application;
  */
 
 $pageGetHandler = function ( $page_name ) use ( $app ) {
-	return $app['twig']->render( 'pages/' . $page_name . '.html', [ 'page' => $page_name ] );
+	return $app['twig']->render(
+		'pages/' . $page_name . '.html',
+		[
+			'page' => $page_name,
+			'api_url' => $app['api_url']
+		]
+	);
 };
 
 $app->get( '/', function() use ( $pageGetHandler ) { return $pageGetHandler( 'home' ); } );

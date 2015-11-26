@@ -10,7 +10,7 @@
         <p class="lead">
             This simple demo interface allows you to quickly get a idea of the data that can be accessed via the QueryR API.
             <br />
-            You can also just view the API itself at <a href="http://queryr.wmflabs.org">queryr.wmflabs.org</a>
+            You can also just view the API itself at <a href="http://{{ api_url }}">{{ api_url }}</a>
         </p>
     </div>
     <div class="row">
@@ -55,7 +55,7 @@
 
 <script>
     queryr.config = {
-        'api_url': 'http://queryr.wmflabs.org/',
+        'api_url': 'http://{{ api_url }}',
         'notFoundItem': 'Q208219'
     };
 </script>
