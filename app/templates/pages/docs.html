@@ -28,7 +28,7 @@
 
 <script type="text/javascript">
     $(function () {
-        var url = '{{ app.request.basepath }}/swagger.json';
+        var url = 'http://{{ api_url }}/swagger.json';
 
         // Pre load translate...
         if(window.SwaggerTranslator) {
