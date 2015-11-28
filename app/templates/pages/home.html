@@ -26,9 +26,17 @@ At this point we are looking for input and
 
 ## Differences with the Wikidata web API
 
-Advantages:
+#### Scope
 
-* REST API with resources, HTTP verbs and hypermedia controls (maturity model level 3)
+* Only retrieval of data, no write actions
+* Only simple access, no queries
+
+<small>At some point adding writing actions and queries might be on the table, though this will then be
+done by proxying the existing Wikidata API, SPARQL endpoint and similar services.</small>
+
+#### Advantages
+
+* REST API with resources, HTTP verbs and hypermedia controls ([Richardson Maturity Model](http://martinfowler.com/articles/richardsonMaturityModel.html) level 3)
     * More intuitive use
     * Decreased binding of your client to the API
     * Self-documenting
@@ -40,21 +48,47 @@ Advantages:
 * Denormalization and inclusion of referenced data
     * No need to make additional requests to understand the requested data
 
-Disadvantages:
+#### Disadvantages
 
-* Data access only, no ability to write back data
+* As this API focuses on serving the most common use cases well, uncommon use cases (typically advanced ones), might not be served at all
 * Not directly connected to the Wikidata persistence, so results might not be as fresh
 
-## Development status and plans
+<small>Note that these lists compare using a hypothetically finished initial version QueryR to better
+illustrate the potential. As the development is still in early stages, advantages such as stability
+have not yet been achieved and lack of proper hosting infrastructure and actual data replication
+are more than disadvantageous.</small>
 
-Many things can be done, input is needed for prioritization. Similarly, input is needed to
-decide on [basic questions](https://github.com/JeroenDeDauw/QueryrAPI/issues?utf8=✓&q=is%3Aopen+label%3A"help+wanted"+label%3A"question").
+## Open questions
 
-## Author
+The open questions fall into several categories
 
-The QueryR software has been created and is maintained by Jeroen De Dauw as hobby project.
-It is **not maintained by Wikimedia** or Wikimedia Deutchland. The webservice is run by Adam
-Shorland and Jeroen De Dauw and is similarly not a WMF/WMDE backed project.
+1. What are the most common use cases and how are they each best served?
+2. What are the best ways to expose certain general features such as versioning, language selection and rate limiting
+3. How is all of this best implemented internally
+
+Input on the first two points (what to build) is needed most, though you are also welcome to comment
+on the third point (how to build it). Please comment on, or create new, issues on the issue tracker.
+
+* [Issues on what to build](https://github.com/JeroenDeDauw/QueryrAPI/labels/question)
+* [All issues](https://github.com/JeroenDeDauw/QueryrAPI/issues)
+
+## Author and credits
+
+The **QueryR software** has been created and is maintained by Jeroen De Dauw as hobby project.
+It is **not maintained by Wikimedia** or Wikimedia Deutchland.
+
+The **webservice** is run by Adam Shorland and Jeroen De Dauw and is similarly not a WMF/WMDE
+backed project.
+
+The **data exposed** by the webservice has been imported from the Wikidata project.
+
+The QueryR API is build on various open source projects, including the
+[Silex microframework](http://silex.sensiolabs.org/), several
+[Wikibase libraries](http://wikiba.se/components/) and the
+[Symfony HttpFoundation](http://symfony.com/doc/current/components/http_foundation/introduction.html)
+component.
 
 {% endmarkdown %}
+
+<br /><br />
 {% endblock %}
