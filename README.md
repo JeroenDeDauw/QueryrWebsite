@@ -16,3 +16,7 @@ set up.
 
 Available options are in `app/config/default-config.php`. Create a `app/config/config.php` file
 and override the options you are interested in.
+
+## Filing issues
+
+Please file issues at https://github.com/JeroenDeDauw/QueryrAPI
