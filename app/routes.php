@@ -24,6 +24,6 @@ $pageGetHandler = function ( $page_name ) use ( $app ) {
 };
 
 $app->get( '/', function() use ( $pageGetHandler ) { return $pageGetHandler( 'home' ); } );
-$app->get( '/{page_name}', $pageGetHandler )->assert( 'page_name', '(home|docs|demo)' );
+$app->get( '/{page_name}', $pageGetHandler )->assert( 'page_name', '(home|docs|demo|docs/item)' );
 
 return $app;

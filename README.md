@@ -4,6 +4,11 @@ Website that documents the [QueryR API](https://github.com/JeroenDeDauw/QueryrAP
 
 The website uses the [Silex](silex.sensiolabs.org/) PHP micro-framework.
 
+## Finding pages
+
+Pages are located in `app/templates/pages`. All pages get embedded in the common layout
+`app/templates/layout.html`. Routing information can be found in `app/routes.php`.
+
 ## Installation
 
 * Run `composer install`

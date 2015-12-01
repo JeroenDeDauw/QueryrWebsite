@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}QueryR API{% endblock %}
+
+{% block content %}
+{% markdown %}
+
+## id
+
+Type: map
+
+Always present and contains at least "wikidata", with the Wikidata.org item id.
+
+Can contain "en.wikipedia" and "$lang.wikipedia", where $lang is the request language. These elements
+contain the corresponding page name on the associated Wikipedia, if such a page exists.
+
+## label, description, aliases
+
+These contain data in the request language that corresponds directly to Wikidata items. They are
+omitted if there is no value in the request language. Label and description contain a string, while
+aliases contains an array of string.
+
+## data
+
+Type: map
+
+Always present, though can be empty.
+
+Contains the data of the item grouped by property. Example:
+
+```json
+"Population": {
+    "value": 9001,
+    "type": "number"
+}
+```
+
+The keys in the map are the property names in the request language. They point to maps that always
+have two keys: "value" and "type". "type" is always a string. The type of "value" depends on "type",
+and can be both a scalar or a map.
+
+A third possible key is "values". This key is always an array and only present when there are
+multiple values for the property. Only the first most preferred value can be found via "value".
+"values" contains all values. The elements in the "values" array are of the same type as value of "value".
+
+The types as value structure is the same as that of the Wikibase software / Wikidata API. However,
+some types are modified, such as `wikibase-item`, which will show as a `string` with as value the
+label (if available) instead of the item id.
+
+{% endmarkdown %}
+
+<br /><br />
+{% endblock %}
