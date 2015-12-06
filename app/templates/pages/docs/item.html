@@ -20,6 +20,15 @@ These contain data in the request language that corresponds directly to Wikidata
 omitted if there is no value in the request language. Label and description contain a string, while
 aliases contains an array of string.
 
+## urls
+
+* label_url
+* description_url
+* aliases_url
+* wikidata_url
+* data_url
+* wikipedia_html_url
+
 ## data
 
 Type: map
@@ -29,23 +38,47 @@ Always present, though can be empty.
 Contains the data of the item grouped by property. Example:
 
 ```json
-"Population": {
-    "value": 9001,
-    "type": "number"
+{
+    "P281": {
+        "property": {
+            "label": "postal code",
+            "id": "P281",
+            "url": "http://localhost:8000/properties/P281"
+        },
+        "value": "10115\u201314199",
+        "type": "string"
+    },
+    "P610": {
+        "property": {
+            "label": "highest point",
+            "id": "P610",
+            "url": "http://localhost:8000/properties/P610"
+        },
+        "value": {
+            "label": "Arkenberge",
+            "id": "Q19259618",
+            "url": "http://localhost:8000/items/Q19259618"
+        },
+        "type": "queryr-entity-identity"
+    }
 }
 ```
 
-The keys in the map are the property names in the request language. They point to maps that always
-have two keys: "value" and "type". "type" is always a string. The type of "value" depends on "type",
-and can be both a scalar or a map.
+The keys in the map are stable property identifiers. They point to maps that always
+have these properties:
 
-A third possible key is "values". This key is always an array and only present when there are
+* `property`: a map always containing `label`, `id` and `url`
+* `value`: mixed type (scalar, list or map)
+* `type`: string denoting the type of value
+
+A fourth possible key is "values". This key is always an array and only present when there are
 multiple values for the property. Only the first most preferred value can be found via "value".
 "values" contains all values. The elements in the "values" array are of the same type as value of "value".
 
-The types as value structure is the same as that of the Wikibase software / Wikidata API. However,
-some types are modified, such as `wikibase-item`, which will show as a `string` with as value the
-label (if available) instead of the item id.
+The types and value structure are the same as the DataValues part of the Wikibase software / Wikidata API.
+[See the list of Wikidata data types](https://www.wikidata.org/wiki/Special:ListDatatypes). With the
+exception of the type `wikibase-entity`, which gets replaced by `queryr-entity-identity`. This new
+type has the same fields as the `property` property.
 
 {% endmarkdown %}
 
