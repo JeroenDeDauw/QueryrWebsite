@@ -1,5 +1,7 @@
 # QueryR website
 
+[![Build Status](https://travis-ci.org/JeroenDeDauw/QueryrWebsite.svg)](https://travis-ci.org/JeroenDeDauw/QueryrWebsite)
+
 Website that documents the [QueryR API](https://github.com/JeroenDeDauw/QueryrAPI).
 
 The website uses the [Silex](silex.sensiolabs.org/) PHP micro-framework.
